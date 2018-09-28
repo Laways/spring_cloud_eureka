@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: eurekaServer
+  client:
+    register-with-eureka: false # 代表不向注册中心注册自己，默认为true
+    fetch-registry: false # 由于注册中心的职责就是维护服务实例，它并不需要去检索服务，所以也设置为false
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  server:
+    enable-self-preservation: false #关闭保护机制，以确保注册中心可以将不可用的实例正确剔除
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    http://${eureka.instance.hostname}:${server.port}/eureka/
